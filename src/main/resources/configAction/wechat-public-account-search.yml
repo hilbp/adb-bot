@@ -1,0 +1,116 @@
+wechat-public-account-search:
+  name: wechat-public-account
+  desc: 获取公众号内容
+  actions:
+    - order: 1
+      name: 打开应用【微信】
+      status: init
+      type: open
+      target-activity: com.tencent.mm/com.tencent.mm.ui.LauncherUI
+
+    - order: 2
+      name: 点击坐标【发现】
+      status: init
+      type: click
+      current-activity: com.tencent.mm/com.tencent.mm.ui.LauncherUI
+      target-activity: com.tencent.mm/com.tencent.mm.ui.LauncherUI
+      bounds: '[540,2009][810,2030]'
+
+    - order: 3
+      name: 点击坐标【搜一搜】
+      status: init
+      type: click
+      current-activity: com.tencent.mm/com.tencent.mm.ui.LauncherUI
+      target-activity: com.tencent.mm/com.tencent.mm.plugin.webview.ui.tools.fts.FTSSOSHomeWebViewUI
+      bounds: '[151,1028][983,1179]'
+
+    - order: 4
+      name: 点击【公众号】
+      status: running
+      type: click
+      current-activity: com.tencent.mm/com.tencent.mm.plugin.webview.ui.tools.fts.FTSSOSHomeWebViewUI
+      target-activity: com.tencent.mm/com.tencent.mm.plugin.webview.ui.tools.fts.FTSSearchTabWebViewUI
+      bounds: '[693,619][999,686]'
+
+    - order: 5
+      name: 切换输入法为【adbkeyboard】
+      status: running
+      type: setIme
+      imeName: ${config.common.ime-adb-keyboard.name}
+
+    - order: 6
+      name: 输入要检索的【公众号关键词】
+      status: running
+      current-activity: com.tencent.mm/com.tencent.mm.plugin.webview.ui.tools.fts.FTSSearchTabWebViewUI
+      type: setTextToInput
+      textSourceBeanName: wechatName
+
+    - order: 7
+      name: 切换输入法为【搜狗输入】
+      status: running
+      type: setIme
+      imeName: ${config.common.ime-default-keyboard.name}
+
+    - order: 8
+      name: 点击唤起输入法【搜狗输入】
+      status: running
+      type: click
+      bounds: '[200,80][90,200]'
+
+    - order: 9
+      name: 模拟点击按钮【回车】
+      status: running
+      type: keyevent
+      key-code: 66
+      current-activity: com.tencent.mm/com.tencent.mm.plugin.webview.ui.tools.fts.FTSSearchTabWebViewUI
+
+    - order: 10
+      name: 进入【公众号】
+      status: running
+      type: click
+      bounds: '[120,430][800,480]'
+      current-activity: com.tencent.mm/com.tencent.mm.plugin.webview.ui.tools.fts.FTSSearchTabWebViewUI
+      target-activity: com.tencent.mm/com.tencent.mm.plugin.profile.ui.ContactInfoUI
+
+    - order: 11
+      name: 保存公众号最新文章
+      status: running
+      type: saveTargetNode
+      ui-save-path: E:/adb/uidump.xml
+      xpath: //node[@resource-id='com.tencent.mm:id/bj1']
+      current-activity: com.tencent.mm/com.tencent.mm.plugin.profile.ui.ContactInfoUI
+      action-state-name: wechatInfo
+
+    - order: 12
+      name: 文章信息处理
+      current-activity: com.tencent.mm/com.tencent.mm.plugin.profile.ui.ContactInfoUI
+      target-activity: com.tencent.mm/com.tencent.mm.plugin.profile.ui.ContactInfoUI
+      status: running
+      type: custom
+      action-state-name: wechatInfo
+      customOperateBeanName: wechatName
+
+    - order: 13
+      name: 模拟点击按钮【返回】
+      status: running
+      type: back
+      current-activity: com.tencent.mm/com.tencent.mm.plugin.profile.ui.ContactInfoUI
+      target-activity: com.tencent.mm/com.tencent.mm.plugin.webview.ui.tools.fts.FTSSOSHomeWebViewUI
+
+    - order: 14
+      name: 出现异常时页面回退到屏幕主页
+      status: exception
+      type: back
+      target-activity: ${devicesConfig.default.homeActivity}
+
+
+
+
+
+
+
+
+
+
+
+

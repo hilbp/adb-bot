@@ -1,0 +1,66 @@
+soul-do-like:
+  name: soul-do-like
+  desc: soul点赞操作流程
+  actions:
+    - order: 1
+      name: 打开应用soul
+      status: init
+      type: open
+      target-activity: ${config.soul.activity.main-activity.name}
+      
+    - order: 2
+      name: 点击底部菜单【广场】
+      status: init
+      type: doubleClick
+      location: 
+        x: ${config.soul.coord.menu-square.location.x}
+        y: ${config.soul.coord.menu-square.location.y}
+      current-activity: ${config.soul.activity.main-activity.name}
+      target-activity: ${config.soul.activity.main-activity.name}
+      
+    - order: 3
+      name: pull用户界面布局文件、通过ui布局文件识别点赞按坐标（数组）
+      status: running
+      type: saveTargetNode
+      ui-save-path: ${config.common.ui-save-path}
+      xpath: //node[@resource-id='cn.soulapp.android:id/iv_like']
+      current-activity: ${config.soul.activity.main-activity.name}
+      target-activity: ${config.soul.activity.main-activity.name}
+      action-state-name: boundsToCoordActionState
+      child-actions: 
+        - order: 1
+          name: 模拟点击点赞按钮
+          status: running
+          type: click
+          current-activity: ${config.soul.activity.main-activity.name}
+          target-activity: ${config.soul.activity.main-activity.name}
+          
+    - order: 5
+      name: 向上翻页
+      status: running
+      type: swipe
+      direction: up
+      location: 
+        x: ${config.common.sreen-center.location.x}
+        y: ${config.common.sreen-center.location.y}
+      offset:
+        x: 100 
+        y: 600
+        
+    - order: 9
+      name: 出现异常时页面回退到屏幕主页
+      status: exception
+      type: back
+      target-activity: ${config.common.home-activity.name}
+
+    
+      
+    
+    
+   
+    
+    
+    
+
+    
+    

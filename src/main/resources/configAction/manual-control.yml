@@ -1,0 +1,26 @@
+manual-control:
+  name: manual-control
+  desc: 通过电脑web界面手动操作手机
+  actions:
+    - order: 1
+      name: 截屏
+      status: running
+      type: screenMirror
+      source-path: src/main/resources/static/assert/screen.png
+      
+    - order: 2
+      name: 手动操作
+      status: running
+      type: manualControl
+      action-state-name: manualControlActionState
+      
+    
+    
+    
+   
+    
+    
+    
+
+    
+    

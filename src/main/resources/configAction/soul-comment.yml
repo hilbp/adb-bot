@@ -1,0 +1,123 @@
+soul-comment:
+  name: soul-comment
+  desc: soul对瞬间评论
+  actions:
+    - order: 1
+      name: 打开应用soul
+      status: init
+      type: open
+      target-activity: ${config.soul.activity.main-activity.name}
+      
+    - order: 2
+      name: 切换输入法为adbkeyboard
+      status: init
+      type: setIme
+      imeName: ${config.common.ime-adb-keyboard.name}
+      
+    - order: 3
+      name: 双击底部菜单【广场】
+      status: init
+      type: doubleClick
+      location: 
+        x: ${config.soul.coord.menu-square.location.x}
+        y: ${config.soul.coord.menu-square.location.y}
+      current-activity: ${config.soul.activity.main-activity.name}
+      target-activity: ${config.soul.activity.main-activity.name}
+      
+    - order: 4
+      name: pull用户界面布局文件、通过ui布局文件获取瞬间列表条目的坐标（数组）
+      status: running
+      type: saveTargetNode
+      ui-save-path: ${config.common.ui-save-path}
+      xpath: //node[@resource-id='cn.soulapp.android:id/square_item_comment']
+      current-activity: ${config.soul.activity.main-activity.name}
+      target-activity: ${config.soul.activity.main-activity.name}
+      action-state-name: boundsToCoordActionState
+      child-actions:  
+        - order: 1
+          name: 模拟点击文本内容进入瞬间详情
+          status: running
+          type: click
+          current-activity: ${config.soul.activity.main-activity.name}
+          target-activity: ${config.soul.activity.post-detail-activity.name}
+          
+        - order: 2
+          name: pull用户界面布局文件、提取node中的text信息并保存在状态中
+          status: running
+          type: saveTargetNode
+          is-not-get-new-ui: true
+          ui-save-path: ${config.common.ui-save-path}
+          xpath: //node[@resource-id='cn.soulapp.android:id/square_item_text']
+          current-activity: ${config.soul.activity.post-detail-activity.name}
+          target-activity: ${config.soul.activity.post-detail-activity.name}
+          action-state-name: saveTextActionState
+          
+        - order: 3
+          name: 文字语义识别并填充评论框
+          status: running
+          type: setTextToInput
+          action-state-name: saveTextActionState
+          current-activity: ${config.soul.activity.post-detail-activity.name}
+          target-activity: ${config.soul.activity.post-detail-activity.name}
+
+        - order: 4
+          name: 点击发送按钮
+          status: running
+          type: click
+          location: 
+            x: ${config.soul.coord.comment-btn.location.x}
+            y: ${config.soul.coord.comment-btn.location.y}
+          current-activity: ${config.soul.activity.post-detail-activity.name}
+          target-activity: ${config.soul.activity.post-detail-activity.name}
+
+        - order: 6
+          name: 返回列表
+          status: running
+          type: back
+          current-activity: ${config.soul.activity.post-detail-activity.name}
+          target-activity: ${config.soul.activity.main-activity.name}
+          
+    - order: 5
+      name: 向上翻页
+      status: running
+      type: swipe
+      direction: up
+      location: 
+        x: ${config.common.sreen-center.location.x}
+        y: ${config.common.sreen-center.location.y}
+      offset:
+        x: 100 
+        y: 600
+        
+    - order: 6
+      name: 出现异常时页面回退到屏幕主页
+      status: exception
+      type: back
+      target-activity: ${config.common.home-activity.name}
+      
+    - order: 7
+      name: 还原输入法为搜狗输入法
+      status: finish
+      type: setIme
+      imeName: ${config.common.ime-default-keyboard.name}
+     
+      
+      
+      
+      
+      
+    
+      
+      
+
+    
+      
+    
+    
+   
+    
+    
+    
+
+    
+    

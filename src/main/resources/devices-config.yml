@@ -1,0 +1,21 @@
+devicesConfig:
+  default:
+    homeActivity: com.miui.home/com.miui.home.launcher.Launcher
+    imeDefaultKeyboard: com.sohu.inputmethod.sogou/.SogouIME
+    ime-adb-keyboard: com.android.adbkeyboard/.AdbIME
+    height: 2160
+    width: 1080
+
+  192.168.1.4:
+    homeActivity: com.miui.home/com.miui.home.launcher.Launcher
+    imeDefaultKeyboard: com.sohu.inputmethod.sogou/.SogouIME
+    ime-adb-keyboard: com.android.adbkeyboard/.AdbIME
+    height: 2160
+    width: 1080
+
+  192.168.1.5:
+    homeActivity: com.miui.home/com.miui.home.launcher.Launcher123
+    imeDefaultKeyboard: com.sohu.inputmethod.sogou/.SogouIME
+    ime-adb-keyboard: com.android.adbkeyboard/.AdbIME
+    height: 2160
+    width: 1080

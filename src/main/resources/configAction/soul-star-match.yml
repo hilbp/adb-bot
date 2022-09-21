@@ -1,0 +1,90 @@
+soul-star-match:
+  name: soul-star-match
+  desc: soul星球匹配
+  actions:
+    - order: 1
+      name: 打开应用soul
+      status: init
+      type: open
+      target-activity: ${config.soul.activity.main-activity.name}
+      
+    - order: 2
+      name: 点击底部菜单【星球】
+      status: init
+      type: click
+      location: 
+        x: ${config.soul.coord.menu-star.location.x}
+        y: ${config.soul.coord.menu-star.location.y}
+      current-activity: ${config.soul.activity.main-activity.name}
+      target-activity: ${config.soul.activity.main-activity.name}
+      
+    - order: 3
+      name: 切换输入法为adbkeyboard
+      status: init
+      type: setIme
+      imeName: ${config.common.ime-adb-keyboard.name}
+      
+    - order: 4
+      name: 点击【灵魂匹配】按钮
+      status: running
+      type: click
+      location: 
+        x: ${config.soul.coord.soul-match.location.x}
+        y: ${config.soul.coord.soul-match.location.y}
+      current-activity: ${config.soul.activity.main-activity.name}
+      target-activity: ${config.soul.activity.chat-window-activity.name}
+      
+    - order: 5
+      name: 点击文本框获取输入焦点
+      status: running
+      type: clickTargetNode
+      ui-save-path: ${config.common.ui-save-path}
+      xpath: //node[@resource-id='cn.soulapp.android:id/et_sendmessage']
+      current-activity: ${config.soul.activity.chat-window-activity.name}
+      target-activity: ${config.soul.activity.chat-window-activity.name}
+      
+    - order: 6
+      name: 往文本框输入文字
+      status: running
+      type: setTextToInput
+      current-activity: ${config.soul.activity.chat-window-activity.name}
+      target-activity: ${config.soul.activity.chat-window-activity.name}
+      
+    - order: 7
+      name: 模拟点击发送按钮
+      status: running
+      type: clickTargetNode
+      ui-save-path: ${config.common.ui-save-path}
+      xpath: //node[@resource-id='cn.soulapp.android:id/btn_send']
+      current-activity: ${config.soul.activity.chat-window-activity.name}
+      target-activity: ${config.soul.activity.chat-window-activity.name}
+      
+    - order: 8
+      name: 返回星球 
+      status: running
+      type: back
+      current-activity: ${config.soul.activity.chat-window-activity.name}
+      target-activity: ${config.soul.activity.main-activity.name}
+      
+    - order: 9
+      name: 出现异常时页面回退到屏幕主页
+      status: exception
+      type: back
+      target-activity: ${config.common.home-activity.name}
+      
+    - order: 10
+      name: 还原输入法为搜狗输入法
+      status: finish
+      type: setIme
+      imeName: ${config.common.ime-default-keyboard.name}
+    
+      
+    
+    
+   
+    
+    
+    
+
+    
+    

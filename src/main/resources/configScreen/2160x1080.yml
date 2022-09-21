@@ -1,0 +1,99 @@
+name: 2160x1080
+mobile-brand: mix2
+desc: 2160x1080分辨率屏幕下的坐标配置
+config:
+  common: 
+    ui-save-path: log/uidump.xml
+    home-activity:
+      name: com.miui.home/com.miui.home.launcher.Launcher
+      title: 手机主界面
+    sreen-center: 
+      name: 屏幕中心坐标
+      location:
+        x: 540
+        y: 1080
+    random-offset: 
+      name: 坐标随机偏移量
+      rx: 10
+      ry: 10
+    ime-default-keyboard: 
+      name: com.sohu.inputmethod.sogou/.SogouIME
+      title: 默认输入法
+    ime-adb-keyboard: 
+      name: com.android.adbkeyboard/.AdbIME
+      title: adb keyborad输入法
+  soul:
+    app-version: V3.33.0-20050600
+    activity:
+      main-activity:
+        name: cn.soulapp.android/cn.soulapp.android.ui.main.MainActivity
+        title: soul的主页activity
+      post-detail-activity: 
+        name: cn.soulapp.android/cn.soulapp.android.ui.post.detail.PostDetailActivity
+        title: soul的瞬间详情activity
+      soul-match-activity: 
+        name: cn.soulapp.android/cn.soulapp.android.ui.planet.robot.RobotActivity
+        title: 灵魂匹配页面的activity
+      chat-window-activity:
+        name: cn.soulapp.android/cn.soulapp.android.myim.ui.ConversationActivity
+        title: 聊天窗口的activity
+    coord:
+      comment-btn: 
+        name: 评论发送按钮
+        location: 
+          x: 985
+          y: 2090
+      menu-star: 
+        name: soul中底部菜单【星球】的坐标
+        location: 
+          x: 107
+          y: 2075
+      menu-square: 
+        name: soul中底部菜单【广场】的坐标
+        location: 
+          x: 322
+          y: 2075
+      menu-chat: 
+        name: soul中底部菜单【聊天】的坐标
+        location: 
+          x: 753
+          y: 2075
+      soul-match: 
+        name: soul的【灵魂匹配】的坐标
+        location: 
+          x: 156
+          y: 1810
+  doyin:
+    app-version: version11.0.0
+    activity:
+      main-activity:
+        name: com.ss.android.ugc.aweme/com.ss.android.ugc.aweme.splash.SplashActivity
+        title: 主页activity
+      video-detail-activity: 
+        name: com.ss.android.ugc.aweme/com.ss.android.ugc.aweme.detail.ui.DetailActivity
+        title: 视频详情
+    coord:
+      menu-mine: 
+        name: 底部菜单【我】
+        location: 
+          x: 970
+          y: 2080
+      tab-like-count: 
+        name: 选项卡【喜欢】
+        location: 
+          x: 890
+          y: 1358
+      like-star-btn: 
+        name: 点赞按钮
+        location: 
+          x: 995
+          y: 1224
+      comment-btn: 
+        name: 评论按钮
+        location: 
+          x: 980
+          y: 1400
+      
+       
+
+

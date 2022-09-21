@@ -1,0 +1,21 @@
+screen-mirror:
+  name: screen-mirror
+  desc: 投屏
+  actions:
+    - order: 1
+      name: 截屏
+      status: running
+      type: screenMirror
+      source-path: src/main/resources/static/assert/screen.png
+      
+ 
+      
+    
+    
+   
+    
+    
+    
+
+    
+    

@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: adb-bot
+  profiles:
+    active: dev
+
+# 通用配置
+adbConfig:
+  defaultAfterActionWaitMillisecond: 1000
+  adbBotActionSchedule: adbBotActionSchedule
+ 

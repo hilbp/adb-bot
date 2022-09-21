@@ -1,0 +1,68 @@
+doyin-cancel-like:
+  name: doyin-cancel-like
+  desc: doyin取消点赞
+  actions:
+    - order: 1
+      name: 打开应用【抖音】
+      status: init
+      type: open
+      target-activity: ${config.doyin.activity.main-activity.name}
+
+    - order: 2
+      name:  点击底部菜单【我】
+      status: init
+      type: click
+      current-activity: ${config.doyin.activity.main-activity.name}
+      target-activity: ${config.doyin.activity.main-activity.name}
+      location: 
+        x: ${config.doyin.coord.menu-mine.location.x}
+        y: ${config.doyin.coord.menu-mine.location.y}
+      
+    - order: 3
+      name: 保存ui找到选项卡【喜欢】的坐标并点击
+      status: init
+      type: clickTargetNode
+      ui-save-path: ${config.common.ui-save-path}
+      xpath: //node[@resource-id='com.ss.android.ugc.aweme:id/f8c']/node[last()]
+      current-activity: ${config.doyin.activity.main-activity.name}
+      target-activity: ${config.doyin.activity.main-activity.name}
+      
+    - order: 4
+      name: 获取点赞过的视频列表
+      status: running
+      type: saveTargetNode
+      ui-save-path: E:/adb/uidump.xml
+      xpath: //node[@resource-id='com.ss.android.ugc.aweme:id/ai0']
+      current-activity: ${config.doyin.activity.main-activity.name}
+      target-activity: ${config.doyin.activity.main-activity.name}
+      action-state-name: boundsToCoordActionState
+      child-actions: 
+        - order: 1
+          name: 点击坐标打开小视频
+          status: running
+          type: click
+          
+        - order: 2
+          name: 取消点赞
+          status: running
+          type: click
+          location: 
+            x: ${config.doyin.coord.like-star-btn.location.x}
+            y: ${config.doyin.coord.like-star-btn.location.y}
+
+        - order: 3
+          name: 返回列表
+          status: running
+          type: back
+          target-activity: ${config.doyin.activity.main-activity.name}
+    
+      
+    
+    
+   
+    
+    
+    
+
+    
+    
