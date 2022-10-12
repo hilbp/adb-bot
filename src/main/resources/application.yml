@@ -9,5 +9,5 @@ adbConfig:
 
 # 腾讯自然语言处理接口
 tencent_nlp_account:
-  app_id: 2119891201
-  app_key: QVsTZBOwEUl6vFhN
+  app_id: xxxx
+  app_key: xxxxxx
