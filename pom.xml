@@ -138,5 +138,13 @@
 		</plugins>
 	</build>
 
+	<distributionManagement>
+		<repository>
+			<id>hilbp</id>
+			<name>hilbp</name>
+			<url>file:E:\git-repo\adb-bot\repo</url>
+		</repository>
+	</distributionManagement>
+
 
 </project>
