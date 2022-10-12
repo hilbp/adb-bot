@@ -1,6 +1,4 @@
 target/
-.mvn/
-.run/
 
 ### STS ###
 .apt_generated
@@ -26,3 +24,5 @@ nbdist/
 
 ### custom ###
 log
+.mvn
+.run
