@@ -1,0 +1,25 @@
+name: Sync Release to OSS
+
+# Release 发布后自动触发：下载附件 → 上传到阿里云 OSS
+on:
+  release:
+    types: [published]
+
+jobs:
+  sync-to-oss:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 下载 Release 附件
+        uses: robinraju/release-downloader@v1.8
+        with:
+          fileName: "*.zip"
+
+      - name: 上传到 OSS
+        uses: tvrcgo/oss-action@master
+        with:
+          key-id: ${{ secrets.OSS_ACCESS_KEY_ID }}
+          key-secret: ${{ secrets.OSS_ACCESS_KEY_SECRET }}
+          endpoint: ${{ secrets.OSS_ENDPOINT }}
+          bucket: ${{ secrets.OSS_BUCKET }}
+          assets: "*.zip"
+          path: adb-bot/${{ github.event.release.tag_name }}
