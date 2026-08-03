@@ -2,6 +2,8 @@
 
 > Activiti 流程引擎保障可靠性，AI 自然语言简化操作并自动录制可复用流程，多设备并发执行
 
+官网：[https://adb-bot.hilbp.com](https://adb-bot.hilbp.com)
+
 ## 核心功能
 
 - **AI 对话操控** — 告诉 AI 你想做什么，自动理解界面、定位元素并执行操作
