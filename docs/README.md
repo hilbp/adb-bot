@@ -1,0 +1,38 @@
+# 目录
+
+- 第一部分　全景与基石
+  - [第 1 章　系统全景与架构哲学](part-1-foundation/01-architecture-overview.md)
+  - [第 2 章　设备发现与并发治理](part-1-foundation/02-device-and-concurrency.md)
+- 第二部分　投屏与操控
+  - [第 3 章　scrcpy 视频流链路](part-2-mirror/03-scrcpy-pipeline.md)
+  - [第 4 章　前端解码与追帧策略](part-2-mirror/04-decode-and-catchup.md)
+  - [第 5 章　操控交互转发](part-2-mirror/05-input-forwarding.md)
+  - [第 6 章　日志实时推送](part-2-mirror/06-log-streaming.md)
+- 第三部分　AI 驱动引擎
+  - [第 7 章　双模型适配层](part-3-ai/07-dual-model-adapter.md)
+  - [第 8 章　Function Calling 工具体系](part-3-ai/08-function-calling.md)
+  - [第 9 章　并发与中断控制](part-3-ai/09-concurrency-control.md)
+- 第四部分　流程自动化
+  - [第 10 章　零侵入 AOP 录制](part-4-process/10-aop-recording.md)
+  - [第 11 章　BPMN 自动生成算法](part-4-process/11-bpmn-generation.md)
+  - [第 12 章　流程引擎集成](part-4-process/12-engine-integration.md)
+  - [第 13 章　生命周期与调度](part-4-process/13-lifecycle-and-schedule.md)
+- 第五部分　行为仿真
+  - [第 14 章　sendevent 点击注入](part-5-simulation/14-sendevent-injection.md)
+  - [第 15 章　设备自动适配](part-5-simulation/15-device-autodetect.md)
+  - [第 16 章　滑动轨迹拟合](part-5-simulation/16-swipe-trajectory.md)
+  - [第 17 章　行为级仿真与工程优化](part-5-simulation/17-behavior-simulation.md)
+- 第六部分　输入引擎
+  - [第 18 章　ADBKeyBoard 广播注入](part-6-input/18-adbkeyboard-injection.md)
+  - [第 19 章　T9 九宫格拼音仿真](part-6-input/19-t9-pinyin-simulation.md)
+- 第七部分　机器视觉
+  - [第 20 章　统一元素定位体系](part-7-vision/20-element-location.md)
+- 第八部分　安全体系
+  - [第 21 章　授权模型](part-8-security/21-license-model.md)
+  - [第 22 章　JAR 加固链](part-8-security/22-jar-hardening.md)
+  - [第 23 章　通信安全](part-8-security/23-communication-security.md)
+  - [第 24 章　数据保护](part-8-security/24-data-protection.md)
+- 附录
+  - [附录 A　Selenium Web 自动化引擎](appendix/a-selenium-engine.md)
+  - [附录 B　技术点索引表](appendix/b-tech-index.md)
+  - [附录 C　术语表](appendix/c-glossary.md)
