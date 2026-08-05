@@ -13,7 +13,7 @@
 1. **安装 OpenClaw** — 参考 [官方文档](https://docs.openclaw.ai)
 2. **安装 Skill** — 执行 `npx clawhub@latest install adb-bot`
 3. **建立连接** — 执行 `openclaw mcp set adb-bot '{"url":"http://localhost:8080/mcp","transport":"streamable-http"}'`
-4. **开始对话** — 在 OpenClaw 输入「帮我截个屏」「打开微信」「点击屏幕中间」
+4. **开始对话** — 在 OpenClaw 输入「帮我截个屏」「打开相册」「点击屏幕中间」
 
 > ADB Bot 需先在本地运行，OpenClaw 通过 MCP 调用 `http://localhost:8080/mcp`。
 
