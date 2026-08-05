@@ -4,6 +4,35 @@
 
 官网：<https://adb-bot.hilbp.com>
 
+## OpenClaw 集成
+
+通过 [OpenClaw](https://docs.openclaw.ai) 的聊天窗口，用自然语言指挥你的手机 —— 截屏、点击、滑动、群控，一句话搞定。ADB Bot 作为 MCP Server，向 OpenClaw 暴露设备操控能力，实现「AI 对话即自动化」。
+
+> **前置条件**：ADB Bot 必须先在本地运行，并完成手机连接。OpenClaw 通过 MCP 协议（`http://localhost:8080/mcp`）调用本机 ADB Bot，未安装客户端时无法工作。
+
+### 接入步骤
+
+1. **安装 OpenClaw** — 参考 [OpenClaw 官方文档](https://docs.openclaw.ai) 安装并启动
+2. **安装 ADB Bot Skill** — 命令行执行：
+   ```bash
+   npx clawhub@latest install adb-bot
+   ```
+3. **建立 MCP 连接** — 命令行执行（默认端口 8080，如修改请相应调整）：
+   ```bash
+   openclaw mcp set adb-bot '{"url":"http://localhost:8080/mcp","transport":"streamable-http"}'
+   ```
+4. **开始对话** — 在 OpenClaw 聊天窗口输入：
+   - `帮我截个屏` — 屏幕快照
+   - `打开微信` — 启动应用
+   - `点击屏幕中间` — 定位点击
+   - `给所有手机打开淘宝` — 多设备群控
+
+### 适用场景
+
+- **自然语言群控** — 一句话指挥多台设备同步操作
+- **AI 自动化测试** — 用对话替代脚本，快速验证设备交互
+- **手机 RPA 编排** — 复杂流程交给 AI 决策，无需手写流程图
+
 ## 功能演示
 
 ### 设备管理和AI驱动
@@ -58,35 +87,6 @@
 1. **连接设备** — 开启 USB 调试，连接电脑
 2. **AI 对话录制** — 打开 AI 面板，自然语言描述操作，自动录制为流程
 3. **部署运行** — 选择流程和设备，一键启动
-
-## OpenClaw 集成
-
-通过 [OpenClaw](https://docs.openclaw.ai) 的聊天窗口，用自然语言指挥你的手机 —— 截屏、点击、滑动、群控，一句话搞定。ADB Bot 作为 MCP Server，向 OpenClaw 暴露设备操控能力，实现「AI 对话即自动化」。
-
-> **前置条件**：ADB Bot 必须先在本地运行，并完成手机连接。OpenClaw 通过 MCP 协议（`http://localhost:8080/mcp`）调用本机 ADB Bot，未安装客户端时无法工作。
-
-### 接入步骤
-
-1. **安装 OpenClaw** — 参考 [OpenClaw 官方文档](https://docs.openclaw.ai) 安装并启动
-2. **安装 ADB Bot Skill** — 命令行执行：
-   ```bash
-   npx clawhub@latest install adb-bot
-   ```
-3. **建立 MCP 连接** — 命令行执行（默认端口 8080，如修改请相应调整）：
-   ```bash
-   openclaw mcp set adb-bot '{"url":"http://localhost:8080/mcp","transport":"streamable-http"}'
-   ```
-4. **开始对话** — 在 OpenClaw 聊天窗口输入：
-   - `帮我截个屏` — 屏幕快照
-   - `打开微信` — 启动应用
-   - `点击屏幕中间` — 定位点击
-   - `给所有手机打开淘宝` — 多设备群控
-
-### 适用场景
-
-- **自然语言群控** — 一句话指挥多台设备同步操作
-- **AI 自动化测试** — 用对话替代脚本，快速验证设备交互
-- **手机 RPA 编排** — 复杂流程交给 AI 决策，无需手写流程图
 
 ## 下载
 
