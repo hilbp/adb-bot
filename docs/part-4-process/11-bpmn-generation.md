@@ -30,7 +30,7 @@ tap 的定位表达式生成有优先级：text+resourceId > contentDesc+resourc
 
 ```mermaid
 flowchart LR
-    subgraph 循环
+    subgraph Loop["循环"]
         A[conditionStart type=times] --> B[循环体动作]
         B --> C{conditionUtil.checkTimes N}
         C -- 未达上限 --> A

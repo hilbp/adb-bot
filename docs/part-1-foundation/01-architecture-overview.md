@@ -11,36 +11,16 @@ adb-bot 不是一个简单的 ADB 命令封装工具。它是一个面向 Androi
 ## 三层模块化
 
 ```mermaid
-flowchart TB
-    subgraph Web 层
-        WA[投屏 WebSocket]
-        WB[AI 对话 SSE]
-        WC[流程管理 REST]
-        WD[设备管理 REST]
-    end
-    
-    subgraph 能力层
-        C1[AI 引擎]
-        C2[流程引擎]
-        C3[录制引擎]
-    end
-    
-    subgraph 基础层
-        B1[ADB 命令]
-        B2[仿真注入]
-        B3[机器视觉]
-        B4[输入引擎]
-    end
-    
-    Web 层 --> 能力层
-    能力层 --> 基础层
+flowchart LR
+    WebLayer["Web 层 · adb-bot-web"] --> CapabilityLayer["能力层 · adb-bot-ai"]
+    CapabilityLayer --> BaseLayer["基础层 · adb-bot-common"]
 ```
 
 | 层 | 模块 | 职责 |
 |---|------|------|
-| Web 层 | adb-bot-web | HTTP/WebSocket 入口、投屏、授权 |
-| 能力层 | adb-bot-ai / adb-bot-process | AI 对话、流程引擎、录制 |
-| 基础层 | adb-bot-common | ADB 命令、仿真、视觉、输入 |
+| Web 层 | adb-bot-web | 投屏 WebSocket、AI 对话 SSE、流程/设备管理 REST、授权 |
+| 能力层 | adb-bot-ai | AI 对话、工具注册、@Recordable 录制 |
+| 基础层 | adb-bot-common | ADB 命令、仿真注入、机器视觉、输入引擎、Activiti 流程引擎 |
 
 基础层不依赖能力层，能力层不依赖 Web 层。依赖方向严格向下。
 
@@ -48,7 +28,7 @@ flowchart TB
 
 **仿真和视觉放在基础层**：因为 AI 工具调用和流程节点执行都需要"点击""滑动""找元素"。如果仿真逻辑写在 AI 模块里，流程引擎就没法复用。放在基础层，两个上层模块都能调用。
 
-**录制引擎放在 AI 模块**：因为录制只发生在 AI 对话过程中（@Recordable 注解贴在 AI 工具方法上），流程引擎执行时不录制。但生成的 BPMN XML 交给流程模块消费。
+**录制引擎放在 AI 模块**：因为录制只发生在 AI 对话过程中（@Recordable 注解贴在 AI 工具方法上），流程引擎执行时不录制。但生成的 BPMN XML 交给 common 模块的 Activiti 引擎消费。
 
 ### 依赖反转
 
@@ -77,9 +57,8 @@ ADB 后端和 Selenium Web 后端共享同一套流程引擎。流程定义中�
 
 | 位置 | 说明 |
 |------|------|
-| `adb-bot-common` | 基础层：ADB 命令、仿真、视觉、输入 |
+| `adb-bot-common` | 基础层：ADB 命令、仿真、视觉、输入、流程引擎（Activiti） |
 | `adb-bot-ai` | 能力层：AI 对话、工具注册、录制 |
-| `adb-bot-process` | 能力层：Activiti 集成、条件表达式 |
 | `adb-bot-web` | Web 层：HTTP/WS 入口、投屏、授权 |
 
 ---
