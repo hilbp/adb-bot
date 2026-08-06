@@ -39,5 +39,8 @@ jobs:
       - name: 上传到 OSS（版本目录）
         run: ossutil cp *.zip oss://${{ secrets.OSS_BUCKET }}/adb-bot/${{ steps.vars.outputs.tag }}/ -r -f
 
-      - name: 同步到 latest（覆盖，供官网直接下载）
-        run: ossutil cp oss://${{ secrets.OSS_BUCKET }}/adb-bot/${{ steps.vars.outputs.tag }}/adb-bot-v${{ steps.vars.outputs.version }}-win-x64.zip oss://${{ secrets.OSS_BUCKET }}/adb-bot/latest/adb-bot-win-x64.zip -f
+      - name: 同步到 latest（清空后上传，保留原版本号文件名）
+        run: |
+          ossutil rm oss://${{ secrets.OSS_BUCKET }}/adb-bot/latest/ -rf
+          ossutil cp oss://${{ secrets.OSS_BUCKET }}/adb-bot/${{ steps.vars.outputs.tag }}/adb-bot-v${{ steps.vars.outputs.version }}-win-x64.zip \
+                     oss://${{ secrets.OSS_BUCKET }}/adb-bot/latest/ -f
