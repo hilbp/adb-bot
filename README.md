@@ -2,7 +2,7 @@
 
 > Activiti 流程引擎保障可靠性，AI 自然语言简化操作并自动录制可复用流程，多设备并发执行
 
-官网：<https://adb-bot.hilbp.com>
+官网：[adb-bot.hilbp.com](https://adb-bot.hilbp.com/?utm_source=github&utm_medium=readme)
 
 ## OpenClaw 集成
 
