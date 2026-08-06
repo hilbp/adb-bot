@@ -1,0 +1,75 @@
+# ============================================================
+# UTM 投放链接清单
+# ============================================================
+# 使用流程：
+#   1. 在 articles/ 新建 markdown，frontmatter 含 slug（与 utm_campaign 一致）
+#   2. 在下方按 slug 分组追加渠道链接
+#   3. 发布时复制对应渠道 url 粘到文末
+#
+# 命名规范：
+#   - 软文文件名 / slug / utm_campaign 三者一致（英文短横线）
+#   - utm_source 用渠道英文小写（见下方渠道表）
+#   - utm_medium 软文固定为 article，静态投放按场景（skill_doc/readme/app_footer 等）
+#
+# 常用渠道 utm_source 对照表：
+#   国内技术社区：
+#     知乎          → zhihu
+#     掘金          → juejin
+#     CSDN          → csdn
+#     博客园        → cnblogs
+#     思否          → segmentfault
+#     InfoQ         → infoq
+#     开源中国      → oschina
+#     51CTO         → 51cto
+#     V2EX          → v2ex
+#     Gitee         → gitee
+#     简书          → jianshu
+#   微信生态：
+#     公众号        → wechat
+#     微信群        → wechat_group
+#   综合/社交：
+#     微博          → weibo
+#     小红书        → xiaohongshu
+#     B站           → bilibili
+#     知乎专栏      → zhihu_column
+#   社区/论坛：
+#     ThinkPHP社区  → thinkphp
+#     Laravel社区   → laravel
+#     掘金小册      → juejin_booklet
+#   海外：
+#     Reddit        → reddit
+#     HackerNews    → hackernews
+#     Twitter/X     → twitter
+#     LinkedIn      → linkedin
+#     Dev.to        → devto
+#     Medium        → medium
+# ============================================================
+
+# ===== 静态渠道（非软文，长期投放） =====
+_static:
+  - name: ClawHub Skill 文档
+    channel: ClawHub
+    url: https://adb-bot.hilbp.com/?utm_source=clawhub&utm_medium=skill_doc
+
+  - name: ClawHub README
+    channel: ClawHub
+    url: https://adb-bot.hilbp.com/?utm_source=clawhub&utm_medium=readme
+
+  - name: 客户端底部官网按钮
+    channel: 客户端
+    url: https://adb-bot.hilbp.com/?utm_source=client&utm_medium=app_footer
+
+  - name: GitHub README
+    channel: GitHub
+    url: https://adb-bot.hilbp.com/?utm_source=github&utm_medium=readme
+
+# ===== 软文投放（按 slug 分组，写新软文时在此追加） =====
+# 示例（实际写软文时复制此结构改为真实 slug）：
+#
+# ai-android-practice:
+#   - channel: 知乎
+#     url: https://adb-bot.hilbp.com/?utm_source=zhihu&utm_medium=article&utm_campaign=ai-android-practice
+#   - channel: 掘金
+#     url: https://adb-bot.hilbp.com/?utm_source=juejin&utm_medium=article&utm_campaign=ai-android-practice
+#   - channel: CSDN
+#     url: https://adb-bot.hilbp.com/?utm_source=csdn&utm_medium=article&utm_campaign=ai-android-practice
